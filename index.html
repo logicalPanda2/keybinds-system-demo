@@ -3,56 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Keybinds Dashboard</title>
+        <title>Keybinds & Accessibility Demo</title>
         <link rel="stylesheet" href="style.css" type="text/css">
     </head>
     <body>
-        <header>
-            <label for="search-input" aria-label="search">
-                <span aria-hidden="true" class="magnifying-glass-icon">
-                    <span class="magnifying-glass-handle">I</span>
-                    <span class="magnifying-glass-glass">O</span>
-                </span>
-            </label>
-            <input type="text" name="q" id="search-input" class="search-bar" spellcheck="false">
-            <button class="dark-mode-btn" aria-label="dark mode">
-                <span aria-hidden="true" class="moon-icon">
-                    <span class="moon-outer">&lpar;</span>
-                </span>
-            </button>
-            <button class="settings-btn">Settings</button>
-        </header>
-        <main>
-            <div id="homepage">
-                <h1>Welcome to the Keybinds Dashboard</h1>
-                <p><strong>Tip:</strong> most actions have a shortcut.</p>
-                <p>Press the <strong class="key">?</strong> key to navigate to the shortcuts page.</p>
-            </div>
-            <section id="settings" class="hidden">
-                <header>
-                    <h2>Settings</h2>
-                </header>
-                <button id="to-a11y">Accessibility</button>
-                <button id="to-shortcuts">Shortcuts</button>
-                <div id="a11y-options">
-                    <p>TBA: accessibility options</p>
-                </div>
-                <div id="shortcut-options">
-                    <div>
-                        <p>action:dark mode</p>
-                        <p>keybind:Control + d</p>
-                        <button id="darkModeEdit">EDIT</button>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <div class="additional-info">
-            <div>
-                <p>Home</p>
-                <p>Focus: Window</p>
-            </div>
-            <p>X was pressed. Waiting for next key...</p>
-        </div>
+        
         <script src="script.js"></script>
     </body>
 </html>
