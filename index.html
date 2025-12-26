@@ -9,20 +9,26 @@
     <body>
         <header>
             <label for="search-input" aria-label="search">
-                <span aria-hidden="true">magnifying glass icon</span>
+                <span aria-hidden="true" class="magnifying-glass-icon">
+                    <span class="magnifying-glass-handle">I</span>
+                    <span class="magnifying-glass-glass">O</span>
+                </span>
             </label>
-            <input type="text" name="q" id="search-input">
-            <button class="dark-mode-btn">dark-mode</button>
-            <button class="settings-btn">settings</button>
+            <input type="text" name="q" id="search-input" class="search-bar" spellcheck="false">
+            <button class="dark-mode-btn" aria-label="dark mode">
+                <span aria-hidden="true" class="moon-icon">
+                    <span class="moon-outer">&lpar;</span>
+                </span>
+            </button>
+            <button class="settings-btn">Settings</button>
         </header>
         <main>
             <div id="homepage">
                 <h1>Welcome to the Keybinds Dashboard</h1>
-                <p>Tip: most actions have a shortcut.</p>
-                <p>Press '?' to navigate to the shortcuts page.</p>
-                <p>Have fun with the various customizable shortcuts!</p>
+                <p><strong>Tip:</strong> most actions have a shortcut.</p>
+                <p>Press the <strong class="key">?</strong> key to navigate to the shortcuts page.</p>
             </div>
-            <section id="settings">
+            <section id="settings" class="hidden">
                 <header>
                     <h2>Settings</h2>
                 </header>
@@ -41,8 +47,10 @@
             </section>
         </main>
         <div class="additional-info">
-            <p>Current place: Home page</p>
-            <p>Current focus: Window</p>
+            <div>
+                <p>Home</p>
+                <p>Focus: Window</p>
+            </div>
             <p>X was pressed. Waiting for next key...</p>
         </div>
         <script src="script.js"></script>

@@ -1,0 +1,140 @@
+* {
+    box-sizing: border-box;
+}
+
+.magnifying-glass-icon, .moon-icon {
+    padding: 0.5rem;
+    border-radius: 1000px;
+    display: inline-block;
+    position: relative;
+    transition: background-color 150ms ease-in, box-shadow 150ms ease-in;
+}
+
+.magnifying-glass-icon {
+    padding: 0.4rem;
+}
+
+.magnifying-glass-icon:hover {
+    background-color: oklch(100% 0.00011 271.152);
+    box-shadow: 0 0 2px 0 oklch(0% 0 0 / 0.5);
+}
+
+.magnifying-glass-handle {
+    display: inline-block;
+    transform: rotateZ(45deg);
+    position: relative;
+    top: 4px;
+    left: 3px;
+    font-weight: 600;
+}
+
+.magnifying-glass-glass {
+    position: relative;
+    left: -2px;
+    top: -4px;
+    font-weight: 600;
+}
+
+.moon-outer {
+    display: inline-block;
+    position: relative;
+    font-weight: 600;
+    transform: rotateZ(-45deg) scaleY(1.5) scaleX(3);
+    left: -2px;
+}
+
+.dark-mode-btn, .settings-btn {
+    border: none;
+    background-color: transparent;
+    border-radius: 1000px;
+    transition: background-color 150ms ease-in, box-shadow 150ms ease-in;
+}
+
+.settings-btn {
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+.dark-mode-btn:hover, .dark-mode-btn:focus-visible, .settings-btn:hover, .settings-btn:focus-visible {
+    outline: none;
+    background-color: oklch(100% 0.00011 271.152);
+    box-shadow: 0 0 2px 0 oklch(0% 0 0 / 0.5);
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    background-color: oklch(97.913% 0.00011 271.152);
+    color: oklch(11.492% 0.00001 271.152);
+    font-family: sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+body > header {
+    padding: 12px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+main {
+    padding: 24px 36px;
+    flex-grow: 1;
+}
+
+p, h1, h2 {
+    margin: 0;
+    font-weight: 400;
+}
+
+.search-bar {
+    width: 75%;
+    min-width: 150px;
+    border-radius: 16px;
+    padding-inline: 8px;
+    padding-block: 6px;
+    border: none;
+    background-color: oklch(100% 0.00011 271.152);
+    box-shadow: 0 0 2px 0 oklch(0% 0 0 / 0.5);
+}
+
+.search-bar:focus-visible, .search-bar:focus {
+    outline: none;
+    border: 2px solid oklch(26.448% 0.00003 271.152);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    font-size: 1.125rem;
+    margin: 0.5rem 0;
+}
+
+.key {
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    background-color: oklch(90.975% 0.0001 271.152);
+}
+
+.hidden {
+    display: none;
+}
+
+.additional-info {
+    display: flex;
+    padding: 0 36px;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+.additional-info div {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 24px;
+}
