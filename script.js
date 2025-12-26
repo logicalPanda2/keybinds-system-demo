@@ -26,7 +26,7 @@ const shortcuts = {
 function toggleEditMode(e) {
     if(!isEditing) {
         isEditing = true;
-        editedAction = e.target.dataset.action;
+        editedAction = shortcuts[e.target.dataset.action];
     } else {
         isEditing = false;
         commitEdit();
