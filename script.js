@@ -1,6 +1,11 @@
-document.addEventListener("keydown", activateKey);
+document.addEventListener("keydown", handleKeydown);
 document.addEventListener("keyup", deactivateKey);
+const editBtn = document.getElementById("darkModeEdit");
+editBtn.addEventListener("click", toggleEditMode);
 
+let isEditing = false;
+let keys = {};
+let editedAction = null;
 const activeKeys = {};
 const shortcuts = {
     darkMode: {
@@ -20,11 +25,69 @@ const shortcuts = {
     }
 }
 
+function toggleEditMode() {
+    if(!isEditing) {
+        isEditing = true;
+        editedAction = shortcuts.darkMode;
+    } else {
+        isEditing = false;
+        commitEdit();
 
-function activateKey(e) {
+        keys = {};
+        editedAction = null;
+    }
+}
+
+function commitEdit() {
+    for(const k in editedAction) {
+        if(editedAction[k] !== editedAction.action) delete editedAction[k];
+    }
+
+    for(const k in keys) {
+        editedAction[k] = keys[k];
+    }
+}
+
+function handleKeydown(e) {
     const key = e.key;
 
-    if(!(key in activeKeys)) {
+    if(isEditing) {
+        e.preventDefault();
+
+        if(key === "Enter") {
+            e.preventDefault();
+            isEditing = false;
+            commitEdit();
+
+            keys = {};
+            editedAction = null;
+            return false;
+        } else if(key === "Backspace") {
+            keys = {};
+        } else if(key === "Escape") {
+            isEditing = false;
+
+            keys = {};
+            editedAction = null;
+        } else {
+            if(isLowercase(key)) {
+                if(key in keys) return false;
+
+                keys[key] = key.toUpperCase();
+            } else if(isUpperCase(key)) {
+                if(key.toLowerCase() in keys) return false;
+
+                keys[key.toLowerCase()] = key;
+            } else {
+                if(key in keys) return false;
+
+                keys[key] = true;
+            }
+        }
+
+    }
+
+    if(!isEditing && !(key in activeKeys)) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
@@ -47,4 +110,12 @@ function detectShortcut(e, shortcut) {
 
     e.preventDefault();
     shortcut.action();
+}
+
+function isLowercase(char) {
+    return char === char.toLowerCase();
+}
+
+function isUpperCase(char) {
+    return char === char.toUpperCase();
 }
