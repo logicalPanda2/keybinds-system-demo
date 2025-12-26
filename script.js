@@ -1,7 +1,5 @@
 document.addEventListener("keydown", handleKeydown);
 document.addEventListener("keyup", deactivateKey);
-const editBtn = document.getElementById("darkModeEdit");
-editBtn.addEventListener("click", toggleEditMode);
 
 let isEditing = false;
 let keys = {};
@@ -25,10 +23,10 @@ const shortcuts = {
     }
 }
 
-function toggleEditMode() {
+function toggleEditMode(e) {
     if(!isEditing) {
         isEditing = true;
-        editedAction = shortcuts.darkMode;
+        editedAction = e.target.dataset.action;
     } else {
         isEditing = false;
         commitEdit();
