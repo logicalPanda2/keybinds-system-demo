@@ -8,6 +8,7 @@ const typingInfo = document.getElementById("typingState");
 const currentFocus = document.getElementById("currentFocus");
 
 let isEditing = false;
+let isTyping = false;
 let keys = {};
 let editedAction = null;
 const activeKeys = {};
@@ -34,12 +35,16 @@ function toggleEditMode(e) {
     if(!isEditing) {
         isEditing = true;
         editedAction = shortcuts[e.target.dataset.action];
+
+        updateElementText(editingInfo, isEditing, false);
     } else {
         isEditing = false;
         commitEdit();
 
         keys = {};
         editedAction = null;
+
+        updateElementText(editingInfo, isEditing, false);
     }
 }
 
@@ -66,7 +71,8 @@ function handleKeydown(e) {
 
             keys = {};
             editedAction = null;
-            return false;
+
+            updateElementText(editingInfo, isEditing, false);
         } else if(key === "Backspace") {
             keys = {};
         } else if(key === "Escape") {
@@ -74,6 +80,8 @@ function handleKeydown(e) {
 
             keys = {};
             editedAction = null;
+
+            updateElementText(editingInfo, isEditing, false);
         } else {
             if(isLowercase(key)) {
                 if(key in keys) return false;
