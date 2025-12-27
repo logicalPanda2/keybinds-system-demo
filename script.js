@@ -21,6 +21,7 @@ highContrastBtn.addEventListener("click", toggleHighContrast);
 highContrastBtn.addEventListener("click", toggleSwitch);
 increasedFocusBtn.addEventListener("click", toggleIncreasedFocus);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
+darkModeBtn.addEventListener("click", toggleDarkMode);
 focusable.forEach(element => element.addEventListener("click", changeFocus));
 
 let isEditing = false;
@@ -192,6 +193,10 @@ function toggleHighContrast() {
 
 function toggleIncreasedFocus() {
     document.body.classList.toggle("increased-focus");
+}
+
+function toggleDarkMode() {
+    document.body.classList.toggle("dark");
 }
 
 function isLowercase(char) {
