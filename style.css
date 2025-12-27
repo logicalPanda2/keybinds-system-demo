@@ -189,3 +189,8 @@ input:focus-visible {
 .high-contrast .dark-mode {
     background-color: white;
 }
+
+.increased-focus *:focus-visible, 
+.increased-focus *:focus {
+    outline: 2px solid black;
+}
