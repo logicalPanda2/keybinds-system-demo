@@ -15,6 +15,7 @@ const focusable = [input, darkModeBtn, window];
 
 input.addEventListener("focus", assignFocus);
 input.addEventListener("blur", assignFocus);
+reducedMotionBtn.addEventListener("click", toggleReducedMotion);
 reducedMotionBtn.addEventListener("click", toggleSwitch);
 highContrastBtn.addEventListener("click", toggleSwitch);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
@@ -174,6 +175,10 @@ function assignFocus(e) {
 
 function toggleSwitch(e) {
     e.currentTarget.classList.toggle("active");
+}
+
+function toggleReducedMotion() {
+    document.body.classList.toggle("reduced-motion");
 }
 
 function isLowercase(char) {
