@@ -14,7 +14,8 @@
     --bg-dark: oklch(95.815% 0.00011 271.152);
     --bg-dark-2: oklch(84.522% 0.0001 271.152);
     --bg-light: oklch(100% 0.00011 271.152);
-    --color-accent: oklch(49.433% 0.28493 269.545);
+    --color-accent: oklch(51.528% 0.27174 271.625);
+    --color-accent-light: oklch(70.177% 0.15825 278.325);
     --text-default: oklch(19.125% 0.00002 271.152);
     --text-secondary: oklch(19.125% 0.00002 271.152/0.75);
     --text-xs: 0.925rem;
@@ -130,6 +131,10 @@ input:focus-visible {
     transition: background-color 100ms ease-out;
 }
 
+.track.active {
+    background-color: var(--color-accent-light);
+}
+
 .thumb {
     position: relative;
     left: var(--decorative-spacing-xs);
@@ -138,6 +143,12 @@ input:focus-visible {
     border-radius: 1000px;
     border-radius: var(--border-radius-large);
     background-color: var(--bg-dark);
+    transition: background-color 100ms ease-out, left 250ms ease;
+}
+
+.active .thumb {
+    left: 45px;
+    background-color: var(--color-accent);
 }
 
 .monospace {

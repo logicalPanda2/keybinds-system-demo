@@ -8,10 +8,16 @@ const typingInfo = document.getElementById("typingState");
 const currentFocus = document.getElementById("currentFocus");
 const input = document.getElementById("input");
 const darkModeBtn = document.getElementById("darkModeBtn");
+const reducedMotionBtn = document.getElementById("reducedMotionToggle");
+const highContrastBtn = document.getElementById("highContrastToggle");
+const increasedFocusBtn = document.getElementById("increasedFocusToggle");
 const focusable = [input, darkModeBtn, window];
 
 input.addEventListener("focus", assignFocus);
 input.addEventListener("blur", assignFocus);
+reducedMotionBtn.addEventListener("click", toggleSwitch);
+highContrastBtn.addEventListener("click", toggleSwitch);
+increasedFocusBtn.addEventListener("click", toggleSwitch);
 focusable.forEach(element => element.addEventListener("click", changeFocus));
 
 let isEditing = false;
@@ -164,6 +170,10 @@ function assignFocus(e) {
         isTyping = false;
     }
     updateElementText(typingInfo, isTyping, false);
+}
+
+function toggleSwitch(e) {
+    e.currentTarget.classList.toggle("active");
 }
 
 function isLowercase(char) {
