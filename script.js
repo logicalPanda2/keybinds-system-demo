@@ -6,6 +6,13 @@ const lastKeyInfo = document.getElementById("lastKey");
 const editingInfo = document.getElementById("editingState");
 const typingInfo = document.getElementById("typingState");
 const currentFocus = document.getElementById("currentFocus");
+const input = document.getElementById("input");
+const darkModeBtn = document.getElementById("darkModeBtn");
+const focusable = [input, darkModeBtn, window];
+
+input.addEventListener("focus", assignFocus);
+input.addEventListener("blur", assignFocus);
+focusable.forEach(element => element.addEventListener("click", changeFocus));
 
 let isEditing = false;
 let isTyping = false;
@@ -99,7 +106,10 @@ function handleKeydown(e) {
         }
     }
 
-    if(!isEditing && !(key in activeKeys)) {
+    if(
+        !isEditing &&
+        !isTyping && 
+        !(key in activeKeys)) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
@@ -141,6 +151,19 @@ function detectShortcut(e, shortcut) {
 
     e.preventDefault();
     shortcut.action();
+}
+
+function changeFocus(e) {
+    currentFocus.textContent = e.target.id ? e.target.id : "window";
+}
+
+function assignFocus(e) {
+    if(e.type === "focus") {
+        isTyping = true;
+    } else {
+        isTyping = false;
+    }
+    updateElementText(typingInfo, isTyping, false);
 }
 
 function isLowercase(char) {
