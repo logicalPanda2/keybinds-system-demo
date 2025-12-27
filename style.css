@@ -35,7 +35,7 @@
     --bg-dark: oklch(33.289% 0.00004 271.152);
     --text-default: oklch(95.514% 0.00011 271.152);
     --text-secondary: oklch(84.522% 0.0001 271.152/0.75);
-    --color-accent: oklch(68.559% 0.16753 277.645);
+    --color-accent: oklch(59.809% 0.21962 274.449);
     --color-accent-light: oklch(81.928% 0.05311 274.431);
     --high-contrast-bg: oklch(0% 0 0);
     --high-contrast-text: oklch(100% 0.00011 271.152);
@@ -102,10 +102,14 @@ h2 {
 }
 
 input {
+    background-color: var(--bg-default);
     margin: var(--semantic-spacing-s) 0;
     padding: var(--decorative-spacing-xs) var(--decorative-spacing-s);
-    border: 1px solid var(--text-default);
+    box-shadow: 0 0 3px 0 var(--text-default);
+    border: none;
     border-radius: var(--border-radius-large);
+    transition: background-color 100ms ease-out, box-shadow 100ms ease-in;
+    color: var(--text-default);
 }
 
 input:focus-visible {
