@@ -177,6 +177,9 @@ function assignFocus(e) {
 
 function toggleSwitch(e) {
     e.currentTarget.classList.toggle("active");
+    e.currentTarget.ariaPressed === "false" ? 
+    e.currentTarget.setAttribute("aria-pressed", "true") : 
+    e.currentTarget.setAttribute("aria-pressed", "false");
 }
 
 function toggleReducedMotion() {
