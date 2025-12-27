@@ -14,13 +14,13 @@
                     <header>
                         <h2>System State</h2>
                     </header>
-                    <p>active keys: <span id="activeKeys">NONE</span></p>
-                    <p>last key pressed: <span id="lastKey">NONE</span></p>
+                    <p>active keys: <span class="monospace" id="activeKeys">NONE</span></p>
+                    <p>last key pressed: <span class="monospace" id="lastKey">NONE</span></p>
                     <br>
-                    <p>currently editing: <span id="editingState">false</span></p>
-                    <p>currently typing: <span id="typingState">false</span></p>
+                    <p>currently editing: <span class="monospace" id="editingState">false</span></p>
+                    <p>currently typing: <span class="monospace" id="typingState">false</span></p>
                     <br>
-                    <p>current focus: <span id="currentFocus">window</span></p>
+                    <p>current focus: <span class="monospace" id="currentFocus">window</span></p>
                 </section>
                 <section>
                     <header>
@@ -29,7 +29,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="input">Text Input</label>
-                            <input type="text" id="input" name="q">
+                            <input type="text" id="input" name="q" spellcheck="false">
                         </div>
                         <button class="dark-mode" id="darkModeBtn">Dark mode</button>
                     </div>
