@@ -8,11 +8,14 @@
     --semantic-spacing-m: 1rem;
     --semantic-spacing-l: 1.5rem;
     --semantic-spacing-xl: 2rem;
-    --bg-default: oklch(98.212% 0.00011 271.152);
+    --border-radius-std: 8px;
+    --border-radius-large: 16px;
+    --bg-default: oklch(97.614% 0.00011 271.152);
     --bg-dark: oklch(95.815% 0.00011 271.152);
     --bg-light: oklch(100% 0.00011 271.152);
     --color-accent: oklch(49.433% 0.28493 269.545);
     --text-default: oklch(19.125% 0.00002 271.152);
+    --shadow-s: 0 1px 2px 0 oklch(0% 0 0/0.75);
 }
 
 * {
@@ -50,4 +53,44 @@ h2 {
     display: flex;
     flex-flow: row nowrap;
     flex-grow: 1;
+    justify-content: space-between;
+}
+
+.row {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.col {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+input {
+    margin: var(--semantic-spacing-s) 0;
+    padding: var(--decorative-spacing-xs) var(--decorative-spacing-s);
+    border: 1px solid var(--text-default);
+    border-radius: var(--border-radius-large);
+}
+
+input:focus-visible {
+    outline: 1.5px solid var(--text-default);
+}
+
+.dark-mode {
+    margin: var(--decorative-spacing-xl);
+    border-radius: var(--border-radius-large);
+    padding: var(--decorative-spacing-s) var(--decorative-spacing-m);
+    background-color: var(--bg-default);
+    border: 1px solid var(--text-default);
+    transition: background-color 100ms ease-out;
+}
+
+.dark-mode:hover {
+    background-color: var(--bg-light);
+}
+
+.dark-mode:active {
+    background-color: var(--bg-dark);
 }
