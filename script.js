@@ -17,6 +17,7 @@ input.addEventListener("focus", assignFocus);
 input.addEventListener("blur", assignFocus);
 reducedMotionBtn.addEventListener("click", toggleReducedMotion);
 reducedMotionBtn.addEventListener("click", toggleSwitch);
+highContrastBtn.addEventListener("click", toggleHighContrast);
 highContrastBtn.addEventListener("click", toggleSwitch);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
 focusable.forEach(element => element.addEventListener("click", changeFocus));
@@ -179,6 +180,10 @@ function toggleSwitch(e) {
 
 function toggleReducedMotion() {
     document.body.classList.toggle("reduced-motion");
+}
+
+function toggleHighContrast() {
+    document.body.classList.toggle("high-contrast");
 }
 
 function isLowercase(char) {
