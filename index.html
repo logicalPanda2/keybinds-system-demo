@@ -9,16 +9,20 @@
     <body>
         <main>
             <h1>Keybinds and Accessibility Demo</h1>
-            <section class="info">
-                <header>
-                    <h2>SYSTEM STATE</h2>
-                </header>
-                <p class="active-keys" id="activeKeys">active keys: {A, Shift, Ctrl}</p>
-                <p class="last-key" id="lastKey">last key pressed: Ctrl</p>
-                <p class="editing-state" id="editingState">currently editing: FALSE</p>
-                <p class="typing-state" id="typingState">currently typing: FALSE</p>
-                <p class="current-focus" id="current-focus">current focus: WINDOW</p>
-            </section>
+            <div class="flex-wrapper">
+                <section class="info">
+                    <header>
+                        <h2>SYSTEM STATE</h2>
+                    </header>
+                    <p id="activeKeys">active keys: {A, Shift, Ctrl}</p>
+                    <p id="lastKey">last key pressed: Ctrl</p>
+                    <br>
+                    <p id="editingState">currently editing: FALSE</p>
+                    <p id="typingState">currently typing: FALSE</p>
+                    <br>
+                    <p id="current-focus">current focus: WINDOW</p>
+                </section>
+            </div>
         </main>
         <script src="script.js"></script>
     </body>

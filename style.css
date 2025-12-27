@@ -1,0 +1,53 @@
+:root {
+    --decorative-spacing-xs: 4px;
+    --decorative-spacing-s: 8px;
+    --decorative-spacing-m: 12px;
+    --decorative-spacing-l: 16px;
+    --decorative-spacing-xl: 24px;
+    --semantic-spacing-s: 0.5rem;
+    --semantic-spacing-m: 1rem;
+    --semantic-spacing-l: 1.5rem;
+    --semantic-spacing-xl: 2rem;
+    --bg-default: oklch(92.494% 0.00011 271.152);
+    --bg-dark: oklch(90.06% 0.0001 271.152);
+    --bg-light: oklch(94.611% 0.00011 271.152);
+    --color-accent: oklch(49.433% 0.28493 269.545);
+    --text-default: oklch(19.125% 0.00002 271.152);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--bg-default);
+    color: var(--text-default);
+    font-family: monospace, sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+}
+
+main {
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+h1, h2, p {
+    margin: 0;
+    font-weight: 400;
+}
+
+h1 {
+    margin-bottom: var(--semantic-spacing-xl);
+}
+
+h2 {
+    margin-bottom: var(--semantic-spacing-s);
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-grow: 1;
+}
