@@ -1,6 +1,12 @@
 document.addEventListener("keydown", handleKeydown);
 document.addEventListener("keyup", deactivateKey);
 
+const activeKeysInfo = document.getElementById("activeKeys");
+const lastKeyInfo = document.getElementById("lastKey");
+const editingInfo = document.getElementById("editingState");
+const typingInfo = document.getElementById("typingState");
+const currentFocus = document.getElementById("currentFocus");
+
 let isEditing = false;
 let keys = {};
 let editedAction = null;
@@ -83,7 +89,6 @@ function handleKeydown(e) {
                 keys[key] = true;
             }
         }
-
     }
 
     if(!isEditing && !(key in activeKeys)) {
@@ -91,6 +96,15 @@ function handleKeydown(e) {
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
         detectShortcut(e, shortcuts.mvSettings);
+
+        const content = activeKeysInfo.textContent.trim();
+        if(content === "NONE") {
+            updateElementText(activeKeysInfo, ` ${charMap[key] ? charMap[key] : key} `, false);
+        } else {
+            updateElementText(activeKeysInfo, ` ${charMap[key] ? charMap[key] : key} `, true);
+        }
+
+        updateElementText(lastKeyInfo, ` ${charMap[key] ? charMap[key] : key} `, false);
     }
 }
 
@@ -98,6 +112,16 @@ function deactivateKey(e) {
     const key = e.key;
 
     delete activeKeys[key];
+
+    updateElementText(activeKeysInfo, null, false);
+    for(const k in activeKeys) {
+        updateElementText(activeKeysInfo, ` ${charMap[k] ? charMap[k] : k} `, true);
+    }
+
+    const content = activeKeysInfo.textContent.trim();
+    if(!content) {
+        updateElementText(activeKeysInfo, "NONE", false);
+    }
 }
 
 function detectShortcut(e, shortcut) {
@@ -131,4 +155,10 @@ function makeCharMap() {
     map[" "] = "Space";
 
     return map;
+}
+
+function updateElementText(HTMLElement, string, append) {
+    append ?
+    HTMLElement.textContent += string :
+    HTMLElement.textContent = string;
 }
