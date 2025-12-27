@@ -22,6 +22,7 @@ const shortcuts = {
         action: () => console.log("moved to settings"),
     }
 }
+const charMap = makeCharMap();
 
 function toggleEditMode(e) {
     if(!isEditing) {
@@ -116,4 +117,18 @@ function isLowercase(char) {
 
 function isUpperCase(char) {
     return char === char.toUpperCase();
+}
+
+function makeCharMap() {
+    const map = {};
+    for(let i = 65; i < (65 + 26); i++) {
+        const lowercaseKey = String.fromCharCode(i + 32);
+        const uppercaseValue = String.fromCharCode(i);
+        map[lowercaseKey] = uppercaseValue;
+    }
+
+    map["Control"] = "Ctrl";
+    map[" "] = "Space";
+
+    return map;
 }
