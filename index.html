@@ -10,7 +10,7 @@
         <main>
             <h1>Keybinds and Accessibility Demo</h1>
             <div class="flex-wrapper">
-                <section class="info">
+                <section>
                     <header>
                         <h2>System State</h2>
                     </header>
@@ -22,9 +22,9 @@
                     <br>
                     <p>current focus: <span id="currentFocus">window</span></p>
                 </section>
-                <section class="features">
+                <section>
                     <header>
-                        <h2>Inputs and buttons</h2>
+                        <h2>Inputs and keybinds</h2>
                     </header>
                     <div class="row">
                         <div class="col">
@@ -34,8 +34,31 @@
                         <button class="dark-mode" id="darkModeBtn">Dark mode</button>
                     </div>
                 </section>
-                <section class="toggles">
-
+                <section>
+                    <header>
+                        <h2>Accessibility Toggles</h2>
+                    </header>
+                    <div class="toggle">
+                        <p class="toggle-title">Reduced motion</p>
+                        <p class="toggle-desc">Turn off all transitions and animations</p>
+                        <button class="track" id="reducedMotionToggle">
+                            <div class="thumb"></div>
+                        </button>
+                    </div>
+                    <div class="toggle">
+                        <p class="toggle-title">High contrast</p>
+                        <p class="toggle-desc">Increase the contrast of the entire site</p>
+                        <button class="track" id="highContrastToggle">
+                            <div class="thumb"></div>
+                        </button>
+                    </div>
+                    <div class="toggle">
+                        <p class="toggle-title">Increased focus</p>
+                        <p class="toggle-desc">Increase the visibility of focus rings</p>
+                        <button class="track" id="increasedFocusToggle">
+                            <div class="thumb"></div>
+                        </button>
+                    </div>
                 </section>
             </div>
         </main>

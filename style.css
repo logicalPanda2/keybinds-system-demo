@@ -12,10 +12,14 @@
     --border-radius-large: 16px;
     --bg-default: oklch(97.614% 0.00011 271.152);
     --bg-dark: oklch(95.815% 0.00011 271.152);
+    --bg-dark-2: oklch(84.522% 0.0001 271.152);
     --bg-light: oklch(100% 0.00011 271.152);
     --color-accent: oklch(49.433% 0.28493 269.545);
     --text-default: oklch(19.125% 0.00002 271.152);
-    --shadow-s: 0 1px 2px 0 oklch(0% 0 0/0.75);
+    --text-secondary: oklch(19.125% 0.00002 271.152/0.75);
+    --text-xs: 0.925rem;
+    --text-m: 1.25rem;
+    --text-l: 1.5rem; 
 }
 
 * {
@@ -46,6 +50,7 @@ h1 {
 }
 
 h2 {
+    font-size: var(--text-l);
     margin-bottom: var(--semantic-spacing-s);
 }
 
@@ -54,6 +59,10 @@ h2 {
     flex-flow: row nowrap;
     flex-grow: 1;
     justify-content: space-between;
+}
+
+.flex-wrapper > section {
+    flex: 33%;
 }
 
 .row {
@@ -79,11 +88,12 @@ input:focus-visible {
 }
 
 .dark-mode {
-    margin: var(--decorative-spacing-xl);
+    margin: var(--semantic-spacing-l);
     border-radius: var(--border-radius-large);
     padding: var(--decorative-spacing-s) var(--decorative-spacing-m);
     background-color: var(--bg-default);
     border: 1px solid var(--text-default);
+    min-width: 95px;
     transition: background-color 100ms ease-out;
 }
 
@@ -92,5 +102,39 @@ input:focus-visible {
 }
 
 .dark-mode:active {
+    background-color: var(--bg-dark);
+}
+
+.toggle {
+    margin-bottom: var(--semantic-spacing-m);
+}
+
+.toggle-title {
+    font-size: var(--text-m);
+}
+
+.toggle-desc {
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+}
+
+.track {
+    position: relative;
+    min-width: 75px;
+    margin: var(--semantic-spacing-m) 0;
+    padding: var(--decorative-spacing-xs) 0;
+    border-radius: var(--border-radius-large);
+    background-color: var(--bg-dark-2);
+    border: 1px solid var(--text-default);
+    transition: background-color 100ms ease-out;
+}
+
+.thumb {
+    position: relative;
+    left: var(--decorative-spacing-xs);
+    width: 24px;
+    height: 24px;
+    border-radius: 1000px;
+    border-radius: var(--border-radius-large);
     background-color: var(--bg-dark);
 }
