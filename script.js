@@ -8,6 +8,7 @@ const typingInfo = document.getElementById("typingState");
 const currentFocus = document.getElementById("currentFocus");
 const input = document.getElementById("input");
 const darkModeBtn = document.getElementById("darkModeBtn");
+const darkModeEdit = document.getElementById("darkModeEdit");
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
@@ -21,12 +22,14 @@ highContrastBtn.addEventListener("click", toggleSwitch);
 increasedFocusBtn.addEventListener("click", toggleIncreasedFocus);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
 darkModeBtn.addEventListener("click", toggleDarkMode);
+darkModeEdit.addEventListener("click", toggleEditMode);
 window.addEventListener("click", changeFocus);
 
 let isEditing = false;
 let isTyping = false;
 let keys = {};
 let editedAction = null;
+let editedActionInfo = null;
 const activeKeys = {};
 const shortcuts = {
     darkMode: {
@@ -46,6 +49,7 @@ function toggleEditMode(e) {
     if(!isEditing) {
         isEditing = true;
         editedAction = shortcuts[e.target.dataset.action];
+        editedActionInfo = document.getElementById(`${e.target.dataset.infoId}`);
 
         updateElementText(editingInfo, isEditing, false);
     } else {
@@ -54,6 +58,7 @@ function toggleEditMode(e) {
 
         keys = {};
         editedAction = null;
+        editedActionInfo = null;
 
         updateElementText(editingInfo, isEditing, false);
     }
@@ -76,21 +81,33 @@ function handleKeydown(e) {
         e.preventDefault();
 
         if(key === "Enter") {
+            if(!Object.keys(keys).length) {
+                console.log("error message: you cannot edit a shortcut with no keys. press Esc to exit edit mode.");
+                return false;
+            }
+
             e.preventDefault();
             isEditing = false;
             commitEdit();
 
             keys = {};
             editedAction = null;
+            editedActionInfo = null;
 
             updateElementText(editingInfo, isEditing, false);
         } else if(key === "Backspace") {
             keys = {};
         } else if(key === "Escape") {
-            isEditing = false;
+            updateElementText(editedActionInfo, null, false);
+            for(const key in editedAction) {
+                if(editedAction[key] !== editedAction.action)
+                updateElementText(editedActionInfo, ` ${charMap[key] ? charMap[key] : key} `, true);
+            }
 
+            isEditing = false;
             keys = {};
             editedAction = null;
+            editedActionInfo = null;
 
             updateElementText(editingInfo, isEditing, false);
         } else {
@@ -106,6 +123,11 @@ function handleKeydown(e) {
                 if(key in keys) return false;
 
                 keys[key] = true;
+            }
+        
+            updateElementText(editedActionInfo, null, false);
+            for(const key in keys) {
+                updateElementText(editedActionInfo, ` ${charMap[key] ? charMap[key] : key} `, true);
             }
         }
     }
