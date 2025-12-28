@@ -194,12 +194,13 @@ input:focus-visible {
     flex-flow: row;
     align-items: center;
     gap: var(--decorative-spacing-xl);
+    margin-bottom: var(--semantic-spacing-l);
 }
 
 .keybind button {
     margin-left: var(--decorative-spacing-s);
     border-radius: var(--border-radius-large);
-    padding: var(--decorative-spacing-s) var(--decorative-spacing-xl);
+    padding: var(--decorative-spacing-s) var(--decorative-spacing-l);
     background-color: var(--color-accent);
     border: none;
     color: var(--bg-default);
