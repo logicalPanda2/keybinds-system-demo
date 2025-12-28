@@ -12,8 +12,8 @@
     --border-radius-large: 16px;
     --bg-default: oklch(97.614% 0.00011 271.152);
     --bg-dark: oklch(84.522% 0.0001 271.152);
-    --bg-light: oklch(100% 0.00011 271.152);
     --color-accent: oklch(51.146% 0.24057 273.869);
+    --color-accent-active: oklch(40.761% 0.23614 269.415);
     --color-accent-light: oklch(70.177% 0.15825 278.325);
     --text-default: oklch(19.125% 0.00002 271.152);
     --text-secondary: oklch(19.125% 0.00002 271.152/0.75);
@@ -24,6 +24,8 @@
     --high-contrast-active-track: oklch(77.389% 0.11513 273.621); 
     --high-contrast-active-thumb: oklch(45.203% 0.3133 264.073);
     --high-contrast-accent: oklch(45.203% 0.3133 264.073);
+    --high-contrast-accent-active: oklch(42.938% 0.22799 271.476);
+    --high-contrast-accent-light: oklch(56.789% 0.18529 269.164);
     --text-xs: 0.925rem;
     --text-sm: 1.125rem;
     --text-m: 1.25rem;
@@ -36,6 +38,7 @@
     --text-default: oklch(95.514% 0.00011 271.152);
     --text-secondary: oklch(84.522% 0.0001 271.152/0.75);
     --color-accent: oklch(65.512% 0.18557 276.939);
+    --color-accent-active: oklch(51.205% 0.16342 278.951);
     --color-accent-light: oklch(81.928% 0.05311 274.431);
     --high-contrast-bg: oklch(0% 0 0);
     --high-contrast-text: oklch(100% 0.00011 271.152);
@@ -44,6 +47,8 @@
     --high-contrast-active-track: oklch(80.202% 0.09974 273.907); 
     --high-contrast-active-thumb: oklch(37.639% 0.22784 268.253);
     --high-contrast-accent: oklch(80.202% 0.09974 273.907);
+    --high-contrast-accent-active: oklch(71.534% 0.15237 281.852);
+    --high-contrast-accent-light: oklch(86.483% 0.06654 274.628);
 }
 
 * {
@@ -127,6 +132,14 @@ input:focus-visible {
     transition: background-color 100ms ease-out;
 }
 
+.dark-mode:hover {
+    background-color: var(--color-accent-light);
+}
+
+.dark-mode:active {
+    background-color: var(--color-accent-active);
+}
+
 .toggle {
     margin-bottom: var(--semantic-spacing-m);
 }
@@ -138,6 +151,7 @@ input:focus-visible {
 .toggle-desc {
     font-size: var(--text-xs);
     color: var(--text-secondary);
+    transition: color 150ms ease;
 }
 
 .track {
@@ -207,6 +221,14 @@ input:focus-visible {
 
 .high-contrast .dark-mode {
     background-color: var(--high-contrast-accent);
+}
+
+.high-contrast .dark-mode:hover {
+    background-color: var(--high-contrast-accent-light);
+}
+
+.high-contrast .dark-mode:active {
+    background-color: var(--high-contrast-accent-active);
 }
 
 .increased-focus *:focus-visible, 
