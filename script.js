@@ -11,7 +11,6 @@ const darkModeBtn = document.getElementById("darkModeBtn");
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
-const focusable = [input, darkModeBtn, window];
 
 input.addEventListener("focus", assignFocus);
 input.addEventListener("blur", assignFocus);
@@ -22,7 +21,7 @@ highContrastBtn.addEventListener("click", toggleSwitch);
 increasedFocusBtn.addEventListener("click", toggleIncreasedFocus);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
 darkModeBtn.addEventListener("click", toggleDarkMode);
-focusable.forEach(element => element.addEventListener("click", changeFocus));
+window.addEventListener("click", changeFocus);
 
 let isEditing = false;
 let isTyping = false;
