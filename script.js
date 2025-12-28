@@ -9,6 +9,7 @@ const currentFocus = document.getElementById("currentFocus");
 const input = document.getElementById("input");
 const darkModeBtn = document.getElementById("darkModeBtn");
 const darkModeEdit = document.getElementById("darkModeEdit");
+const moveFocusEdit = document.getElementById("moveFocusEdit");
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
@@ -23,6 +24,7 @@ increasedFocusBtn.addEventListener("click", toggleIncreasedFocus);
 increasedFocusBtn.addEventListener("click", toggleSwitch);
 darkModeBtn.addEventListener("click", toggleDarkMode);
 darkModeEdit.addEventListener("click", toggleEditMode);
+moveFocusEdit.addEventListener("click", toggleEditMode);
 window.addEventListener("click", changeFocus);
 
 let isEditing = false;
