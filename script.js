@@ -92,15 +92,16 @@ function commitEdit() {
 }
 
 function handleKeydown(e) {
-    updateElementText(errorDisplay, "No errors detected", false);
-    errorDisplay.classList.remove("invalid");
-    errorDisplay.classList.add("valid");
     const key = e.key;
 
     if(isEditing) {
         e.preventDefault();
 
         if(key === "Enter") {
+            updateElementText(errorDisplay, "No errors detected", false);
+            errorDisplay.classList.remove("invalid");
+            errorDisplay.classList.add("valid");
+
             if(!Object.keys(keys).length) {
                 updateElementText(errorDisplay, "Cannot edit a shortcut with no keys. To exit edit mode, press the Escape key.", false);
                 errorDisplay.classList.add("invalid");
@@ -120,6 +121,10 @@ function handleKeydown(e) {
         } else if(key === "Backspace") {
             keys = {};
         } else if(key === "Escape") {
+            updateElementText(errorDisplay, "No errors detected", false);
+            errorDisplay.classList.remove("invalid");
+            errorDisplay.classList.add("valid");
+
             updateElementText(editedActionInfo, null, false);
             for(const key in editedAction) {
                 if(editedAction[key] !== editedAction.action)

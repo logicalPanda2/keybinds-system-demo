@@ -17,11 +17,11 @@
                         </header>
                         <p>active keys: <span class="monospace" id="activeKeys">none</span></p>
                         <p>last key pressed: <span class="monospace" id="lastKey">none</span></p>
-                        <p>currently editing: <span class="monospace" id="editingState">false</span></p>
+                        <p role="alert">currently editing: <span class="monospace" id="editingState">false</span></p>
                         <p>currently typing: <span class="monospace" id="typingState">false</span></p>
                         <p>current focus: <span class="monospace" id="currentFocus">window</span></p>
                         <br>
-                        <p class="valid"><span id="errorMessage">No errors detected</span></p>
+                        <p class="valid" role="alert"><span id="errorMessage">No errors detected</span></p>
                     </section>
                 </div>
                 <div class="col">
@@ -42,19 +42,19 @@
                             <h2>Keybinds</h2>
                         </header>
                         <div class="keybind">
-                            <p id="darkModeLabel">Toggle dark mode</p>
-                            <p role="alert" id="darkModeEditInfo">Ctrl D</p>
-                            <button aria-labelledby="darkModeLabel" id="darkModeEdit" data-action="darkMode" data-info-id="darkModeEditInfo">EDIT</button>
+                            <p>Toggle dark mode</p>
+                            <p aria-live="polite" id="darkModeEditInfo">Ctrl D</p>
+                            <button aria-label="edit shortcut" id="darkModeEdit" data-action="darkMode" data-info-id="darkModeEditInfo">EDIT</button>
                         </div>
                         <div class="keybind">
-                            <p id="moveFocusLabel">Move focus to input</p>
-                            <p role="alert" id="moveFocusEditInfo">Ctrl K</p>
-                            <button aria-labelledby="moveFocusLabel" id="moveFocusEdit" data-action="focusSearch" data-info-id="moveFocusEditInfo">EDIT</button>
+                            <p>Move focus to input</p>
+                            <p aria-live="polite" id="moveFocusEditInfo">Ctrl K</p>
+                            <button aria-label="edit shortcut" id="moveFocusEdit" data-action="focusSearch" data-info-id="moveFocusEditInfo">EDIT</button>
                         </div>
                         <div class="keybind">
-                            <p id="resetAccessibilitySettingsLabel">Reset accessibility toggles</p>
-                            <p role="alert" id="resetAccessibilitySettingsEditInfo">Ctrl Q</p>
-                            <button aria-labelledby="resetAccessibilitySettingsLabel" id="resetAccessibilitySettingsEdit" data-action="resetAccessibilitySettings" data-info-id="resetAccessibilitySettingsEditInfo">EDIT</button>
+                            <p>Reset accessibility toggles</p>
+                            <p aria-live="polite" id="resetAccessibilitySettingsEditInfo">Ctrl Q</p>
+                            <button aria-label="edit shortcut" id="resetAccessibilitySettingsEdit" data-action="resetAccessibilitySettings" data-info-id="resetAccessibilitySettingsEditInfo">EDIT</button>
                         </div>
                     </section>
                 </div>
