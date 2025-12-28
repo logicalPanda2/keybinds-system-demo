@@ -10,24 +10,25 @@
         <main>
             <h1>Keybinds and Accessibility Demo</h1>
             <div class="flex-wrapper">
-                <section>
-                    <header>
-                        <h2>System State</h2>
-                    </header>
-                    <p>active keys: <span class="monospace" id="activeKeys">NONE</span></p>
-                    <p>last key pressed: <span class="monospace" id="lastKey">NONE</span></p>
-                    <br>
-                    <p>currently editing: <span class="monospace" id="editingState">false</span></p>
-                    <p>currently typing: <span class="monospace" id="typingState">false</span></p>
-                    <br>
-                    <p>current focus: <span class="monospace" id="currentFocus">window</span></p>
-                </section>
+                <div class="col">
+                    <p>Hello. </p>
+                    <section class="system-state">
+                        <header>
+                            <h2>System State</h2>
+                        </header>
+                        <p>active keys: <span class="monospace" id="activeKeys">NONE</span></p>
+                        <p>last key pressed: <span class="monospace" id="lastKey">NONE</span></p>
+                        <p>currently editing: <span class="monospace" id="editingState">false</span></p>
+                        <p>currently typing: <span class="monospace" id="typingState">false</span></p>
+                        <p>current focus: <span class="monospace" id="currentFocus">window</span></p>
+                    </section>
+                </div>
                 <div class="col">
                     <section>
                         <header>
                             <h2>Inputs</h2>
                         </header>
-                        <div class="row">
+                        <div class="inputs">
                             <div class="col">
                                 <label for="input">Text Input</label>
                                 <input type="text" id="input" name="q" spellcheck="false">
@@ -56,30 +57,32 @@
                         </div>
                     </section>
                 </div>
-                <section>
-                    <header>
-                        <h2>Accessibility Toggles</h2>
-                    </header>
-                    <div class="toggle">
-                        <p class="toggle-title" id="reducedMotionLabel">Reduced motion</p>
-                        <p class="toggle-desc">Turn off all transitions and animations</p>
-                        <button class="track" id="reducedMotionToggle" aria-labelledby="reducedMotionLabel" aria-pressed="false">
-                            <div class="thumb"></div>
-                        </button>
-                    </div>
-                    <div class="toggle">
-                        <p class="toggle-title" id="highContrastLabel">High contrast</p>
-                        <p class="toggle-desc">Increase the contrast of the entire site</p>
-                        <button class="track" id="highContrastToggle" aria-labelledby="highContrastLabel" aria-pressed="false">
-                            <div class="thumb"></div>
-                        </button>
-                    </div>
-                    <div class="toggle">
-                        <p class="toggle-title" id="increasedFocusLabel">Increased focus</p>
-                        <p class="toggle-desc">Increase the visibility of focus rings</p>
-                        <button class="track" id="increasedFocusToggle" aria-labelledby="increasedFocusLabel" aria-pressed="false">
-                            <div class="thumb"></div>
-                        </button>
+                <section class="justify-center">
+                    <div>
+                        <header>
+                            <h2>Accessibility Toggles</h2>
+                        </header>
+                        <div class="toggle">
+                            <p class="toggle-title" id="reducedMotionLabel">Reduced motion</p>
+                            <p class="toggle-desc">Turn off all transitions and animations</p>
+                            <button class="track" id="reducedMotionToggle" aria-labelledby="reducedMotionLabel" aria-pressed="false">
+                                <div class="thumb"></div>
+                            </button>
+                        </div>
+                        <div class="toggle">
+                            <p class="toggle-title" id="highContrastLabel">High contrast</p>
+                            <p class="toggle-desc">Increase the contrast of the entire site</p>
+                            <button class="track" id="highContrastToggle" aria-labelledby="highContrastLabel" aria-pressed="false">
+                                <div class="thumb"></div>
+                            </button>
+                        </div>
+                        <div class="toggle">
+                            <p class="toggle-title" id="increasedFocusLabel">Increased focus</p>
+                            <p class="toggle-desc">Increase the visibility of focus rings</p>
+                            <button class="track" id="increasedFocusToggle" aria-labelledby="increasedFocusLabel" aria-pressed="false">
+                                <div class="thumb"></div>
+                            </button>
+                        </div>
                     </div>
                 </section>
             </div>
