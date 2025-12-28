@@ -29,6 +29,7 @@ darkModeEdit.addEventListener("click", toggleEditMode);
 moveFocusEdit.addEventListener("click", toggleEditMode);
 resetAccessibilitySettingsEdit.addEventListener("click", toggleEditMode);
 window.addEventListener("click", changeFocus);
+window.addEventListener("DOMContentLoaded", checkWidth);
 
 let isEditing = false;
 let isTyping = false;
@@ -203,6 +204,18 @@ function detectShortcut(e, shortcut) {
 
     e.preventDefault();
     shortcut.action();
+}
+
+function checkWidth() {
+    if(window.innerWidth <= 752) {
+        disableKeybindEdit();
+    }
+}
+
+function disableKeybindEdit() {
+    darkModeEdit.setAttribute("disabled", "");
+    moveFocusEdit.setAttribute("disabled", "");
+    resetAccessibilitySettingsEdit.setAttribute("disabled", "");
 }
 
 function changeFocus(e) {
