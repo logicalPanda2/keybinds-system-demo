@@ -14,6 +14,7 @@ const resetAccessibilitySettingsEdit = document.getElementById("resetAccessibili
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
+const errorDisplay = document.getElementById("errorMessage");
 
 input.addEventListener("focus", assignFocus);
 input.addEventListener("blur", assignFocus);
@@ -63,7 +64,9 @@ function toggleEditMode(e) {
         updateElementText(editingInfo, isEditing, false);
     } else {
         if(!Object.keys(keys).length) {
-            console.log("error message: you cannot edit a shortcut with no keys. press Esc to exit edit mode.");
+            updateElementText(errorDisplay, "Cannot edit a shortcut with no keys. To exit edit mode, press the Escape key.", false);
+            errorDisplay.classList.add("invalid");
+            errorDisplay.classList.remove("valid");
             return false;
         }
 
@@ -89,6 +92,9 @@ function commitEdit() {
 }
 
 function handleKeydown(e) {
+    updateElementText(errorDisplay, "No errors detected", false);
+    errorDisplay.classList.remove("invalid");
+    errorDisplay.classList.add("valid");
     const key = e.key;
 
     if(isEditing) {
@@ -96,7 +102,9 @@ function handleKeydown(e) {
 
         if(key === "Enter") {
             if(!Object.keys(keys).length) {
-                console.log("error message: you cannot edit a shortcut with no keys. press Esc to exit edit mode.");
+                updateElementText(errorDisplay, "Cannot edit a shortcut with no keys. To exit edit mode, press the Escape key.", false);
+                errorDisplay.classList.add("invalid");
+                errorDisplay.classList.remove("valid");
                 return false;
             }
 
