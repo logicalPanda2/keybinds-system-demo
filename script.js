@@ -155,7 +155,7 @@ function handleKeydown(e) {
         detectShortcut(e, shortcuts.resetAccessibilitySettings)
 
         const content = activeKeysInfo.textContent.trim();
-        if(content === "NONE") {
+        if(content === "none") {
             updateElementText(activeKeysInfo, ` ${charMap[key] ? charMap[key] : key} `, false);
         } else {
             updateElementText(activeKeysInfo, ` ${charMap[key] ? charMap[key] : key} `, true);
@@ -177,7 +177,7 @@ function deactivateKey(e) {
 
     const content = activeKeysInfo.textContent.trim();
     if(!content) {
-        updateElementText(activeKeysInfo, "NONE", false);
+        updateElementText(activeKeysInfo, "none", false);
     }
 }
 
