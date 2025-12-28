@@ -10,6 +10,7 @@ const input = document.getElementById("input");
 const darkModeBtn = document.getElementById("darkModeBtn");
 const darkModeEdit = document.getElementById("darkModeEdit");
 const moveFocusEdit = document.getElementById("moveFocusEdit");
+const resetAccessibilitySettingsEdit = document.getElementById("resetAccessibilitySettingsEdit")
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
@@ -25,6 +26,7 @@ increasedFocusBtn.addEventListener("click", toggleSwitch);
 darkModeBtn.addEventListener("click", toggleDarkMode);
 darkModeEdit.addEventListener("click", toggleEditMode);
 moveFocusEdit.addEventListener("click", toggleEditMode);
+resetAccessibilitySettingsEdit.addEventListener("click", toggleEditMode);
 window.addEventListener("click", changeFocus);
 
 let isEditing = false;
@@ -43,7 +45,12 @@ const shortcuts = {
         "Control": true,
         "k": "K",
         action: () => input.focus(),
-    }
+    },
+    resetAccessibilitySettings: {
+        "Control": true,
+        "q": "Q",
+        action: () => resetAccessibilitySettings(),
+    },
 }
 const charMap = makeCharMap();
 
@@ -145,6 +152,7 @@ function handleKeydown(e) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
+        detectShortcut(e, shortcuts.resetAccessibilitySettings)
 
         const content = activeKeysInfo.textContent.trim();
         if(content === "NONE") {
@@ -214,6 +222,18 @@ function toggleHighContrast() {
 
 function toggleIncreasedFocus() {
     document.body.classList.toggle("increased-focus");
+}
+
+function resetAccessibilitySettings() {
+    document.body.classList.remove("reduced-motion");
+    document.body.classList.remove("high-contrast");
+    document.body.classList.remove("increased-focus");
+    reducedMotionBtn.classList.remove("active");
+    reducedMotionBtn.setAttribute("aria-pressed", "false");
+    highContrastBtn.classList.remove("active");
+    highContrastBtn.setAttribute("aria-pressed", "false");
+    increasedFocusBtn.classList.remove("active");
+    increasedFocusBtn.setAttribute("aria-pressed", "false");
 }
 
 function toggleDarkMode() {
