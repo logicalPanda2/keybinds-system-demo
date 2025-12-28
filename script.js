@@ -33,17 +33,12 @@ const shortcuts = {
     darkMode: {
         "Control": true,
         "d": "D",
-        action: () => console.log("dark mode toggled"),
+        action: () => toggleDarkMode(),
     },
     focusSearch: {
         "Control": true,
-        "e": "E",
-        action: () => console.log("search bar entered"),
-    },
-    mvSettings: {
-        "Control": true,
-        "f": "F",
-        action: () => console.log("moved to settings"),
+        "k": "K",
+        action: () => input.focus(),
     }
 }
 const charMap = makeCharMap();
@@ -118,12 +113,10 @@ function handleKeydown(e) {
 
     if(
         !isEditing &&
-        !isTyping && 
         !(key in activeKeys)) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
-        detectShortcut(e, shortcuts.mvSettings);
 
         const content = activeKeysInfo.textContent.trim();
         if(content === "NONE") {
