@@ -91,7 +91,7 @@ h2 {
     justify-content: space-between;
 }
 
-.flex-wrapper > section {
+.flex-wrapper > section, .flex-wrapper > div {
     flex: 33%;
 }
 
@@ -129,14 +129,14 @@ input:focus-visible {
     border: none;
     color: var(--bg-default);
     min-width: 95px;
-    transition: background-color 100ms ease-out;
+    transition: background-color 100ms ease-out, color 100ms ease-out;
 }
 
-.dark-mode:hover {
+.dark-mode:hover, .keybind button:hover {
     background-color: var(--color-accent-light);
 }
 
-.dark-mode:active {
+.dark-mode:active, .keybind button:active {
     background-color: var(--color-accent-active);
 }
 
@@ -185,6 +185,27 @@ input:focus-visible {
     background-color: var(--color-accent);
 }
 
+.keybinds-section {
+    margin-top: var(--semantic-spacing-l);
+}
+
+.keybind {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: var(--decorative-spacing-xl);
+}
+
+.keybind button {
+    margin-left: var(--decorative-spacing-s);
+    border-radius: var(--border-radius-large);
+    padding: var(--decorative-spacing-s) var(--decorative-spacing-xl);
+    background-color: var(--color-accent);
+    border: none;
+    color: var(--bg-default);
+    transition: background-color 100ms ease-out, color 100ms ease-out;
+}
+
 .monospace {
     font-family: monospace;
     font-size: var(--text-sm);
@@ -219,15 +240,15 @@ input:focus-visible {
     color: var(--high-contrast-text);
 }
 
-.high-contrast .dark-mode {
+.high-contrast .dark-mode, .high-contrast .keybind button {
     background-color: var(--high-contrast-accent);
 }
 
-.high-contrast .dark-mode:hover {
+.high-contrast .dark-mode:hover, .high-contrast .keybind button:hover {
     background-color: var(--high-contrast-accent-light);
 }
 
-.high-contrast .dark-mode:active {
+.high-contrast .dark-mode:active, .high-contrast .keybind button:active {
     background-color: var(--high-contrast-accent-active);
 }
 
