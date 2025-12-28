@@ -97,6 +97,10 @@ h2 {
     margin-bottom: var(--semantic-spacing-s);
 }
 
+.touch-fallback {
+    display: none;
+}
+
 .flex-wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -314,5 +318,10 @@ body.reduced-motion, body.reduced-motion * {
 
     .justify-center {
         justify-content: flex-start;
+    }
+
+    .touch-fallback {
+        display: block;
+        margin-bottom: var(--semantic-spacing-l);
     }
 }
