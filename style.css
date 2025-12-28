@@ -250,6 +250,11 @@ input:focus-visible {
     transition: background-color 100ms ease-out, color 100ms ease-out;
 }
 
+body *:disabled, body *:disabled:hover, body *:disabled:active {
+    background-color: gray;
+    opacity: 0.9;
+}
+
 .monospace {
     font-family: monospace;
     font-size: var(--text-sm);
