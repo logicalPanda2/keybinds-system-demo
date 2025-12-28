@@ -22,18 +22,30 @@
                     <br>
                     <p>current focus: <span class="monospace" id="currentFocus">window</span></p>
                 </section>
-                <section>
-                    <header>
-                        <h2>Inputs and keybinds</h2>
-                    </header>
-                    <div class="row">
-                        <div class="col">
-                            <label for="input">Text Input</label>
-                            <input type="text" id="input" name="q" spellcheck="false">
+                <div class="col">
+                    <section>
+                        <header>
+                            <h2>Inputs</h2>
+                        </header>
+                        <div class="row">
+                            <div class="col">
+                                <label for="input">Text Input</label>
+                                <input type="text" id="input" name="q" spellcheck="false">
+                            </div>
+                            <button class="dark-mode" id="darkModeBtn">Dark mode</button>
                         </div>
-                        <button class="dark-mode" id="darkModeBtn">Dark mode</button>
-                    </div>
-                </section>
+                    </section>
+                    <section class="keybinds-section">
+                        <header>
+                            <h2>Keybinds</h2>
+                        </header>
+                        <div class="keybind">
+                            <p id="darkModeLabel">Toggle dark mode</p>
+                            <p role="alert" id="darkModeEditInfo">Ctrl D</p>
+                            <button aria-labelledby="darkModeLabel" id="darkModeEdit" data-action="darkMode" data-info-id="darkModeEditInfo">Edit</button>
+                        </div>
+                    </section>
+                </div>
                 <section>
                     <header>
                         <h2>Accessibility Toggles</h2>
