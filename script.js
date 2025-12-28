@@ -53,6 +53,11 @@ function toggleEditMode(e) {
 
         updateElementText(editingInfo, isEditing, false);
     } else {
+        if(!Object.keys(keys).length) {
+            console.log("error message: you cannot edit a shortcut with no keys. press Esc to exit edit mode.");
+            return false;
+        }
+
         isEditing = false;
         commitEdit();
 
