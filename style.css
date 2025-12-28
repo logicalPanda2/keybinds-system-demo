@@ -26,6 +26,8 @@
     --high-contrast-accent: oklch(45.203% 0.3133 264.073);
     --high-contrast-accent-active: oklch(42.938% 0.22799 271.476);
     --high-contrast-accent-light: oklch(56.789% 0.18529 269.164);
+    --color-valid: oklch(49.234% 0.15006 142.888);
+    --color-error: oklch(52.879% 0.217 29.223);
     --text-xxs: 0.75rem;
     --text-xs: 0.925rem;
     --text-sm: 1.125rem;
@@ -50,6 +52,8 @@
     --high-contrast-accent: oklch(80.202% 0.09974 273.907);
     --high-contrast-accent-active: oklch(71.534% 0.15237 281.852);
     --high-contrast-accent-light: oklch(86.483% 0.06654 274.628);
+    --color-valid: oklch(85.965% 0.27115 142.776);
+    --color-error: oklch(66.066% 0.22581 25.939);
 }
 
 * {
@@ -69,6 +73,14 @@ main {
     min-height: 100vh;
     display: flex;
     flex-flow: column nowrap;
+}
+
+.valid {
+    color: var(--color-valid);
+}
+
+.invalid {
+    color: var(--color-error);
 }
 
 h1, h2, p {
