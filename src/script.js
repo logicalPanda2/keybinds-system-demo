@@ -121,6 +121,8 @@ function handleKeydown(e) {
             updateElementText(editingInfo, isEditing, false);
         } else if(key === "Backspace") {
             keys = {};
+
+            updateElementText(editedActionInfo, null, false);
         } else if(key === "Escape") {
             updateElementText(errorDisplay, "No errors detected", false);
             errorDisplay.classList.remove("invalid");
