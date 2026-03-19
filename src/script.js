@@ -209,7 +209,7 @@ function detectShortcut(e, shortcut) {
 }
 
 function checkWidth() {
-    if(window.innerWidth <= 752) {
+    if(window.innerWidth <= 768) {
         disableKeybindEdit();
     }
 }
