@@ -62,6 +62,11 @@ function toggleEditMode(e) {
         editedAction = shortcuts[e.target.dataset.action];
         editedActionInfo = document.getElementById(`${e.target.dataset.infoId}`);
 
+        updateElementText(
+            document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+            "CONFIRM",
+            false,
+        );
         updateElementText(editingInfo, isEditing, false);
     } else {
         if(!Object.keys(keys).length) {
@@ -78,6 +83,11 @@ function toggleEditMode(e) {
         editedAction = null;
         editedActionInfo = null;
 
+        updateElementText(
+            document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+            "EDIT",
+            false,
+        );
         updateElementText(editingInfo, isEditing, false);
     }
 }
@@ -118,6 +128,11 @@ function handleKeydown(e) {
             editedAction = null;
             editedActionInfo = null;
 
+            updateElementText(
+                document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+                "EDIT",
+                false,
+            );
             updateElementText(editingInfo, isEditing, false);
         } else if(key === "Backspace") {
             keys = {};
@@ -139,6 +154,11 @@ function handleKeydown(e) {
             editedAction = null;
             editedActionInfo = null;
 
+            updateElementText(
+                document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+                "EDIT",
+                false,
+            );
             updateElementText(editingInfo, isEditing, false);
         } else {
             if(isLowercase(key)) {
