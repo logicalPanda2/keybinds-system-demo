@@ -69,7 +69,7 @@ body {
 }
 
 main {
-    padding: 24px;
+    padding: 48px;
     min-height: 100vh;
     display: flex;
     flex-flow: column nowrap;
@@ -94,7 +94,7 @@ h1 {
 
 h2 {
     font-size: var(--text-l);
-    margin-bottom: var(--semantic-spacing-s);
+    margin-bottom: var(--semantic-spacing-m);
 }
 
 .touch-fallback {
@@ -229,11 +229,24 @@ input:focus-visible {
 
 .keybind {
     display: flex;
-    flex-flow: row;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
     gap: var(--decorative-spacing-xl);
     margin-bottom: var(--semantic-spacing-m);
+}
+
+.keybind-subgroup {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--decorative-spacing-xl);
+    width: 75%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.keybind-title {
+    font-size: var(--text-sm);
 }
 
 .keybind p {
@@ -306,7 +319,7 @@ body.reduced-motion, body.reduced-motion * {
     outline: 2px solid var(--text-default);
 }
 
-@media (max-width: 47rem) {
+@media (max-width: 64rem) {
     .flex-wrapper {
         flex-flow: column nowrap;
     }
@@ -328,5 +341,32 @@ body.reduced-motion, body.reduced-motion * {
     .touch-fallback {
         display: block;
         margin-bottom: var(--semantic-spacing-l);
+    }
+
+    .keybind {
+        max-width: 60%;
+    }
+}
+
+@media (max-width: 52rem) {
+    .keybind {
+        align-items: start;
+        flex-flow: column nowrap;
+        max-width: 100%;
+        gap: 0;
+        margin-bottom: var(--semantic-spacing-l);
+    }
+
+    .keybind-title {
+        margin-bottom: var(--semantic-spacing-s);
+    }
+
+    .keybind-subgroup {
+        justify-content: start;
+        gap: 128px;
+    }
+
+    .keybind p {
+        max-width: 100%;
     }
 }
