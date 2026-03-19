@@ -111,7 +111,7 @@ h2 {
 .flex-wrapper > * {
     flex: 3;
     min-width: 12rem;
-    padding: var(--decorative-spacing-xl);
+    padding: var(--decorative-spacing-s);
 }
 
 .flex-wrapper > :first-child {
