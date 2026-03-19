@@ -1,5 +1,5 @@
 # Keybinds and Accessibility System Demo
-<img src="public/main-page.png" alt="main page" width="959" height="436">
+<img src="public/main.png" alt="main page" width="959" height="436">
 
 A demo showcasing a shortcut customization system and accessibility toggles.
 
