@@ -10,7 +10,7 @@ const input = document.getElementById("input");
 const darkModeBtn = document.getElementById("darkModeBtn");
 const darkModeEdit = document.getElementById("darkModeEdit");
 const moveFocusEdit = document.getElementById("moveFocusEdit");
-const resetAccessibilitySettingsEdit = document.getElementById("resetAccessibilitySettingsEdit")
+const resetAllyEdit = document.getElementById("resetAllyEdit")
 const reducedMotionBtn = document.getElementById("reducedMotionToggle");
 const highContrastBtn = document.getElementById("highContrastToggle");
 const increasedFocusBtn = document.getElementById("increasedFocusToggle");
@@ -27,7 +27,7 @@ increasedFocusBtn.addEventListener("click", toggleSwitch);
 darkModeBtn.addEventListener("click", toggleDarkMode);
 darkModeEdit.addEventListener("click", toggleEditMode);
 moveFocusEdit.addEventListener("click", toggleEditMode);
-resetAccessibilitySettingsEdit.addEventListener("click", toggleEditMode);
+resetAllyEdit.addEventListener("click", toggleEditMode);
 window.addEventListener("click", changeFocus);
 window.addEventListener("DOMContentLoaded", checkWidth);
 
@@ -49,10 +49,10 @@ const shortcuts = {
         "k": "K",
         action: () => input.focus(),
     },
-    resetAccessibilitySettings: {
+    resetAlly: {
         "Control": true,
         "q": "Q",
-        action: () => resetAccessibilitySettings(),
+        action: () => resetAlly(),
     },
 }
 const charMap = makeCharMap();
@@ -190,7 +190,7 @@ function handleKeydown(e) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
-        detectShortcut(e, shortcuts.resetAccessibilitySettings)
+        detectShortcut(e, shortcuts.resetAlly)
 
         const content = activeKeysInfo.textContent.trim();
         if(content === "none") {
@@ -239,7 +239,7 @@ function checkWidth() {
 function disableKeybindEdit() {
     darkModeEdit.setAttribute("disabled", "");
     moveFocusEdit.setAttribute("disabled", "");
-    resetAccessibilitySettingsEdit.setAttribute("disabled", "");
+    resetAllyEdit.setAttribute("disabled", "");
 }
 
 function changeFocus(e) {
@@ -274,7 +274,7 @@ function toggleIncreasedFocus() {
     document.body.classList.toggle("increased-focus");
 }
 
-function resetAccessibilitySettings() {
+function resetAlly() {
     document.body.classList.remove("reduced-motion");
     document.body.classList.remove("high-contrast");
     document.body.classList.remove("increased-focus");
