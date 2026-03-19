@@ -132,10 +132,14 @@ h2 {
     flex-flow: row nowrap;
 }
 
+.items-center {
+    align-items: center;
+    gap: var(--decorative-spacing-xl)
+}
+
 .inputs {
     display: flex;
-    flex-flow: row wrap;
-    align-items: flex-end;
+    flex-flow: column nowrap;
     column-gap: var(--decorative-spacing-l);
 }
 
@@ -147,12 +151,13 @@ h2 {
 input {
     background-color: var(--bg-default);
     margin: var(--semantic-spacing-s) 0;
-    padding: var(--decorative-spacing-xs) var(--decorative-spacing-s);
+    padding: 6px var(--decorative-spacing-m);
     box-shadow: 0 0 2.5px 0 var(--text-default);
     border: none;
     border-radius: var(--border-radius-large);
     transition: background-color 100ms ease-out, box-shadow 100ms ease-in;
     color: var(--text-default);
+    font-size: var(--text-xs);
 }
 
 input:focus-visible {
