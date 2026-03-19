@@ -36,6 +36,7 @@ let isTyping = false;
 let keys = {};
 let editedAction = null;
 let editedActionInfo = null;
+let currentlyEdited = null;
 const activeKeys = {};
 const shortcuts = {
     darkMode: {
@@ -61,9 +62,10 @@ function toggleEditMode(e) {
         isEditing = true;
         editedAction = shortcuts[e.target.dataset.action];
         editedActionInfo = document.getElementById(`${e.target.dataset.infoId}`);
+        currentlyEdited = e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit");
 
         updateElementText(
-            document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+            document.getElementById(currentlyEdited),
             "CONFIRM",
             false,
         );
@@ -84,7 +86,7 @@ function toggleEditMode(e) {
         editedActionInfo = null;
 
         updateElementText(
-            document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+            document.getElementById(currentlyEdited),
             "EDIT",
             false,
         );
@@ -129,7 +131,7 @@ function handleKeydown(e) {
             editedActionInfo = null;
 
             updateElementText(
-                document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+                document.getElementById(currentlyEdited),
                 "EDIT",
                 false,
             );
@@ -155,7 +157,7 @@ function handleKeydown(e) {
             editedActionInfo = null;
 
             updateElementText(
-                document.getElementById(e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit")),
+                document.getElementById(currentlyEdited),
                 "EDIT",
                 false,
             );
