@@ -231,7 +231,9 @@ function detectShortcut(e, shortcut) {
 }
 
 function checkWidth() {
-    if(window.innerWidth <= 768) {
+    if(window.innerWidth <= (64 * Number(
+        getComputedStyle(document.documentElement).fontSize.slice(0, 2))
+    )) {
         disableKeybindEdit();
     }
 }
