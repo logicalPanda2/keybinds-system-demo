@@ -362,6 +362,12 @@ body.reduced-motion, body.reduced-motion * {
         margin-bottom: var(--semantic-spacing-l);
     }
 
+    .inputs > div.row {
+        flex-flow: column nowrap;
+        align-items: start;
+        gap: var(--decorative-spacing-s);
+    }
+
     .keybind-title {
         margin-bottom: var(--semantic-spacing-s);
     }
