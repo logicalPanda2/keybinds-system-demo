@@ -250,7 +250,13 @@ function disableKeybindEdit() {
 }
 
 function changeFocus(e) {
-    currentFocus.textContent = e.target.id ? e.target.id : "window";
+    const nearest = e.target.closest(`#${e.target.id}`).id;
+    currentFocus.textContent = 
+        e.target.id 
+        ? e.target.id 
+        : nearest 
+        ? nearest
+        : "window";
 }
 
 function assignFocus(e) {
