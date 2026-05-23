@@ -63,6 +63,7 @@ function toggleEditMode(e) {
         editedAction = shortcuts[e.target.dataset.action];
         editedActionInfo = document.getElementById(`${e.target.dataset.infoId}`);
         currentlyEdited = e.target.dataset.action === "focusSearch" ? "moveFocusEdit" : e.target.dataset.action.concat("Edit");
+        updateElementText(editedActionInfo, null, false);
 
         updateElementText(
             document.getElementById(currentlyEdited),
@@ -186,11 +187,12 @@ function handleKeydown(e) {
 
     if(
         !isEditing &&
-        !(key in activeKeys)) {
+        !(key in activeKeys)
+    ) {
         activeKeys[key] = true;
         detectShortcut(e, shortcuts.darkMode);
         detectShortcut(e, shortcuts.focusSearch);
-        detectShortcut(e, shortcuts.resetAlly)
+        detectShortcut(e, shortcuts.resetAlly);
 
         const content = activeKeysInfo.textContent.trim();
         if(content === "none") {
@@ -207,6 +209,7 @@ function deactivateKey(e) {
     const key = e.key;
 
     delete activeKeys[key];
+    delete activeKeys[key.toUpperCase()]
 
     updateElementText(activeKeysInfo, null, false);
     for(const k in activeKeys) {
@@ -228,6 +231,8 @@ function detectShortcut(e, shortcut) {
 
     e.preventDefault();
     shortcut.action();
+
+    return true;
 }
 
 function checkWidth() {
